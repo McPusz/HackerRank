@@ -7,6 +7,7 @@ enum AlgoTypes {
     case naiveApproach
     case naiveApproachTwo
     case chineseTest
+    case hackerrank
 }
 
 func isPrime(_ num: Int, algoType: AlgoTypes) -> Bool {
@@ -18,6 +19,8 @@ func isPrime(_ num: Int, algoType: AlgoTypes) -> Bool {
         return isPrimeNaiveApproachTwo(num)
     case .chineseTest:
         return isPrimeChineseTest(num)
+    case .hackerrank:
+        return isPrimeHackerrank(num)
     }
 }
 
@@ -30,6 +33,18 @@ func isPrimeNaiveApproach(_ num: Int) -> Bool {
             return false
         }
         i += 1
+    }
+    return true
+}
+
+func isPrimeHackerrank(_ p: Int) -> Bool {
+    guard p != 1 else { return false }
+    guard p != 2 && p != 3 else { return true }
+    let sq = Int(sqrt(Double(p)))
+    for i in 2...sq {
+        if p % i == 0 {
+            return false
+        }
     }
     return true
 }
