@@ -28,12 +28,8 @@ func gmailUsers() -> [String: String] {
     return gmailUsers
 }
 
-func sortedAlphabetically() -> [String: String] {
-    let users = gmailUsers()
-    let sortedUsers = gmailUsers().sorted { (_ v1, _ v2) -> Bool in
-        return v1>v2
-    }
-    return sortedUsers
+func sortedNames() -> [String] {
+    return gmailUsers().values.sorted()
 }
 
-print(sortedAlphabetically())
+sortedNames().forEach{print($0)}
